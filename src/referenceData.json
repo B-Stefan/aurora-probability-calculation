@@ -1,0 +1,129 @@
+[
+  {
+      "geoMagLat": 49.11,
+      "label": "Bremen, Germany",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0
+        },
+        {
+          "kp": 3,
+          "probability": 0
+        },
+        {
+          "kp": 4,
+          "probability": 0.2
+        },
+        {
+          "kp": 5,
+          "probability": 0.4
+        },
+        {
+          "kp": 6,
+          "probability": 0.6
+        },
+        {
+          "kp": 7,
+          "probability": 0.8
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  },
+  {
+      "geoMagLat": 58.97,
+      "label": "Jyväskylä, Finland",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0.1
+        },
+        {
+          "kp": 3,
+          "probability": 0.2
+        },
+        {
+          "kp": 4,
+          "probability": 0.6
+        },
+        {
+          "kp": 5,
+          "probability": 0.9
+        },
+        {
+          "kp": 6,
+          "probability": 1
+        },
+        {
+          "kp": 7,
+          "probability": 1
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  },
+  {
+      "geoMagLat": 65.31,
+      "label": "Saariselkä, Finland",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0.5
+        },
+        {
+          "kp": 3,
+          "probability": 0.9
+        },
+        {
+          "kp": 4,
+          "probability": 1
+        },
+        {
+          "kp": 5,
+          "probability": 1
+        },
+        {
+          "kp": 6,
+          "probability": 1
+        },
+        {
+          "kp": 7,
+          "probability": 1
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  }
+
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "geoMagLat": 56.82,
+    "label": "Helsinki, Finland",
+    "values": [
+      {
+        "kp": 1,
+        "probability": 0
+      },
+      {
+        "kp": 2,
+        "probability": 0
+      },
+      {
+        "kp": 3,
+        "probability": 0
+      },
+      {
+        "kp": 4,
+        "probability": 0.1
+      },
+      {
+        "kp": 5,
+        "probability": 0.6
+      },
+      {
+        "kp": 6,
+        "probability": 0.9
+      },
+      {
+        "kp": 7,
+        "probability": 1
+      },
+      {
+        "kp": 8,
+        "probability": 1
+      },
+      {
+        "kp": 9,
+        "probability": 1
+      }
+    ]
+  },
+  {
+      "geoMagLat": 56.02,
+      "label": "Tallin, Estonia",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0.0
+        },
+        {
+          "kp": 3,
+          "probability": 0.0
+        },
+        {
+          "kp": 4,
+          "probability": 0.1
+        },
+        {
+          "kp": 5,
+          "probability": 0.3
+        },
+        {
+          "kp": 6,
+          "probability": 0.8
+        },
+        {
+          "kp": 7,
+          "probability": 1
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  }
+]
