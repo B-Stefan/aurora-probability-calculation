@@ -1,36 +1,34 @@
 import {GeomagneticLatToKPIndex} from "geomagnatic-to-kp-index-converter"
-import svm from "node-svm"
+import brain from "brain"
 import so from "stringify-object"
 export default class KpPredictionClass {
 
 
   constructor(){
 
-    const options = {
-        gamma: [0.125, 0.5, 1],
-        c: [8, 16, 32],
-        epsilon: [0.001, 0.125, 0.5],
-        normalize: true, // (default)
-        reduce: true, // (default)
-        retainedVariance: 0.995,
-        kFold: 5
-      }
-
-    this.svm = new svm.EpsilonSVR(options);
+    this.net = new brain.NeuralNetwork({
+      hiddenLayers:[128,64]
+    });
 
   }
 
   train(referenceData){
-      console.log(referenceData)
-      const trainData = this.transformReferencData(referenceData)
 
+      const trainOptions = {
+        errorThresh: 0.005,  // error threshold to reach
+        iterations: 20000,   // maximum training iterations
+        log: true,           // console.log() progress periodically
+        logPeriod: 1000,       // number of iterations between logging
+        learningRate: 0.6    // learning rate
+      }
+      const trainData = this.transformReferencData(referenceData)
+      console.log(so(trainData))
       if(typeof this.trainPromise == "undefined"){
-        this.trainPromise = this.svm.train(trainData)
-            .progress((progress)=>{
-               console.log('training progress: %d%', Math.round(progress*100));
-            }).spread(function (model, report) {
-                console.log('SVM trained. \nReport :\n%s', so(report));
-            });
+        this.trainPromise = new Promise ((resolve,reject)=>{
+            let result = this.net.train(trainData,trainOptions)
+            console.log(so(result))
+            resolve(result)
+        })
       }
       return this.trainPromise
 
@@ -47,7 +45,7 @@ export default class KpPredictionClass {
       */
       const transformed =  referenceData.map((town)=>{
           return town.values.map((townValues)=>{
-              return [[town.geoMagLat, townValues.kp],townValues.probability]
+              return {input:[town.geoMagLat, townValues.kp], output: [townValues.probability]}
           })
       })
       //flattern
@@ -62,6 +60,6 @@ export default class KpPredictionClass {
   */
   predict(gLat, kpIndex){
 
-    return this.svm.predictSync([gLat,kpIndex]);
+    return this.net.run([gLat,kpIndex]);
   }
 }

@@ -30,6 +30,7 @@
     "stringify-object": "^2.3.1"
   },
   "dependencies": {
+    "brain": "^0.7.0",
     "geomagnatic-to-kp-index-converter": "^1.0.0",
     "node-svm": "^2.1.7"
   }
