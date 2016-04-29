@@ -5,10 +5,11 @@ import testData from "./testData.json"
 import {expect} from "chai"
 
 
+const allowedError = 0.06;
 function calculateRange(probability){
   return {
-    "min": probability - 0.1,
-    "max": probability + 0.1
+    "min": probability - allowedError ,
+    "max": probability + allowedError 
   }
 }
 
