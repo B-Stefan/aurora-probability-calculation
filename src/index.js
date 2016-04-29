@@ -1,7 +1,11 @@
-export {KpPredictionClass} from "./KpPredictionClass"
+import KpPredictionClass from "./KpPredictionClass"
+import referenceData from "./referenceData.json"
+const defaultNetwork = new KpPredictionClass();
 
-export default function (){
+export function predict(gLAt, kpIndex){
 
-  console.log("default function")
+    return defaultNetwork.train(referenceData).then(()=>{
+        return defaultNetwork.predict(gLAt, kpIndex)
+    })
 
 }

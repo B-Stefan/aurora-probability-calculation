@@ -23,12 +23,19 @@ export default class KpPredictionClass {
   train(referenceData){
       console.log(referenceData)
       const trainData = this.transformReferencData(referenceData)
-      this.svm.train(trainData)
-      .progress((progress)=>{
-         console.log('training progress: %d%', Math.round(progress*100));
-      }).spread(function (model, report) {
-          console.log('SVM trained. \nReport :\n%s', so(report));
-      });
+
+      if(typeof this.trainPromise == "undefined"){
+        this.trainPromise = this.svm.train(trainData)
+            .progress((progress)=>{
+               console.log('training progress: %d%', Math.round(progress*100));
+            }).spread(function (model, report) {
+                console.log('SVM trained. \nReport :\n%s', so(report));
+            });
+      }
+      return this.trainPromise
+
+
+
   }
   transformReferencData(referenceData){
       /**

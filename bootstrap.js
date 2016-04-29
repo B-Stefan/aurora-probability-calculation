@@ -3,9 +3,9 @@ require("babel-core/register")({
   // an array of strings to be explicitly matched or a regex / glob
   ignore: function(filename) {
 
-    if(filename.indexOf("geomagnatic-to-kp-index-converter")>-1){
+    if(filename.indexOf("geomagnatic-to-kp-index-converter")>-1 || filename.indexOf("node_modules") === -1){
       return false;
     }
-    return false
+    return true
   }
 });
