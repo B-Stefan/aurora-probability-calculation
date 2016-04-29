@@ -1,5 +1,5 @@
 import {GeomagneticLatToKPIndex} from "geomagnatic-to-kp-index-converter"
-import svm from "node-svm"
+import {Architect, Trainer} from "synaptic"
 import so from "stringify-object"
 export default class KpPredictionClass {
 
@@ -16,21 +16,27 @@ export default class KpPredictionClass {
         kFold: 5
       }
 
-    this.svm = new svm.EpsilonSVR(options);
+    this.net = new Architect.LSTM(2,6,8,4,1);
+    this.trainer  = new Trainer(this.net);
 
   }
 
   train(referenceData){
-      console.log(referenceData)
       const trainData = this.transformReferencData(referenceData)
 
+      const defaults = {
+        iterations: 50000,
+        log: true,
+        shuffle: true,
+        cost: Trainer.cost.BINARY
+      }
+
       if(typeof this.trainPromise == "undefined"){
-        this.trainPromise = this.svm.train(trainData)
-            .progress((progress)=>{
-               console.log('training progress: %d%', Math.round(progress*100));
-            }).spread(function (model, report) {
-                console.log('SVM trained. \nReport :\n%s', so(report));
-            });
+        this.trainPromise = new Promise((resolve,reject)=>{
+          const result = this.trainer.train(trainData,defaults)
+          so(result)
+          resolve()
+        })
       }
       return this.trainPromise
 
@@ -47,7 +53,7 @@ export default class KpPredictionClass {
       */
       const transformed =  referenceData.map((town)=>{
           return town.values.map((townValues)=>{
-              return [[town.geoMagLat, townValues.kp],townValues.probability]
+              return {input:[town.geoMagLat, townValues.kp] , output:[townValues.probability] }
           })
       })
       //flattern
@@ -62,6 +68,6 @@ export default class KpPredictionClass {
   */
   predict(gLat, kpIndex){
 
-    return this.svm.predictSync([gLat,kpIndex]);
+    return this.net.activate([gLat,kpIndex]);
   }
 }
