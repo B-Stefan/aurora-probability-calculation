@@ -1,22 +1,26 @@
 import {GeomagneticLatToKPIndex} from "geomagnatic-to-kp-index-converter"
-import svm from "node-svm"
+import convnetjs from "convnetjs"
 import so from "stringify-object"
 export default class KpPredictionClass {
 
 
   constructor(){
 
-    const options = {
-        gamma: [0.125, 0.5, 1],
-        c: [8, 16, 32],
-        epsilon: [0.001, 0.125, 0.5],
-        normalize: true, // (default)
-        reduce: true, // (default)
-        retainedVariance: 0.995,
-        kFold: 5
-      }
 
-    this.svm = new svm.EpsilonSVR(options);
+    let layer_defs = [];
+    layer_defs.push({type:'input', out_sx:1, out_sy:1, out_depth:2});
+    layer_defs.push({type:'fc', num_neurons:20, activation:'relu'});
+    layer_defs.push({type:'fc', num_neurons:20, activation:'relu'});
+    layer_defs.push({type:'fc', num_neurons:20, activation:'relu'});
+    layer_defs.push({type:'fc', num_neurons:20, activation:'relu'});
+    layer_defs.push({type:'fc', num_neurons:10, activation:'sigmoid'});
+    layer_defs.push({type:'regression', num_neurons:1});
+
+    this.net = new convnetjs.Net();
+    this.net.makeLayers(layer_defs);
+
+    this.trainer = new convnetjs.Trainer(this.net, {method: 'adagrad', l2_decay: 0.001,batch_size: 10});
+
 
   }
 
@@ -25,12 +29,21 @@ export default class KpPredictionClass {
       const trainData = this.transformReferencData(referenceData)
 
       if(typeof this.trainPromise == "undefined"){
-        this.trainPromise = this.svm.train(trainData)
-            .progress((progress)=>{
-               console.log('training progress: %d%', Math.round(progress*100));
-            }).spread(function (model, report) {
-                console.log('SVM trained. \nReport :\n%s', so(report));
-            });
+        this.trainPromise = new Promise((resolve,reject)=>{
+
+          let avgCosts = 0;
+          for(var i = 0 ; i<20000; i++){
+            trainData.forEach((trainDataEntry)=>{
+                let vol =  new convnetjs.Vol(trainDataEntry.input);
+                let costs= this.trainer.train(vol,[trainDataEntry.output])
+                avgCosts +=costs.cost_loss
+            })
+          }
+
+          avgCosts = avgCosts / (trainData.length * 500)
+          console.log(avgCosts)
+          resolve();
+        })
       }
       return this.trainPromise
 
@@ -47,7 +60,7 @@ export default class KpPredictionClass {
       */
       const transformed =  referenceData.map((town)=>{
           return town.values.map((townValues)=>{
-              return [[town.geoMagLat, townValues.kp],townValues.probability]
+              return {input:[town.geoMagLat, townValues.kp],output: townValues.probability*100}
           })
       })
       //flattern
@@ -62,6 +75,8 @@ export default class KpPredictionClass {
   */
   predict(gLat, kpIndex){
 
-    return this.svm.predictSync([gLat,kpIndex]);
+    var vol = new convnetjs.Vol([gLat, kpIndex]);
+
+    return this.net.forward(vol).w[0]/100;
   }
 }

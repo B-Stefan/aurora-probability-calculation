@@ -9,7 +9,7 @@ const allowedError = 0.06;
 function calculateRange(probability){
   return {
     "min": probability - allowedError ,
-    "max": probability + allowedError 
+    "max": probability + allowedError
   }
 }
 
@@ -27,6 +27,7 @@ describe("Prediction excat probability", function() {
       const instance = new KpPredictionClass();
 
 
+      this.timeout(1000000)
 
       before(function(){
         return instance.train(referenceData);

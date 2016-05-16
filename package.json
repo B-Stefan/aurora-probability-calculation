@@ -30,6 +30,7 @@
     "stringify-object": "^2.3.1"
   },
   "dependencies": {
+    "convnetjs": "^0.3.0",
     "geomagnatic-to-kp-index-converter": "^1.0.0",
     "node-svm": "^2.1.7"
   }
