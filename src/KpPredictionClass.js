@@ -1,6 +1,5 @@
 import {GeomagneticLatToKPIndex} from "geomagnatic-to-kp-index-converter"
 import svm from "node-svm"
-import so from "stringify-object"
 export default class KpPredictionClass {
 
 
