@@ -12,10 +12,6 @@ var _nodeSvm = require("node-svm");
 
 var _nodeSvm2 = _interopRequireDefault(_nodeSvm);
 
-var _stringifyObject = require("stringify-object");
-
-var _stringifyObject2 = _interopRequireDefault(_stringifyObject);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
