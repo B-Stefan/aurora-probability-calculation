@@ -8,7 +8,7 @@ A library to predict the probability of an aurora boreales event in the future.
 ```javascript
 
 
-import {predict} from "./src/index"
+import {predict} from "aurora-probability-calculation"
 
 const gLat = 55.60; // Geomagnatic latitude Malmö, Schweden , see https://en.wikipedia.org/wiki/Geomagnetic_lat
 const kpIndex = 6; // Kp Index see  http://www.swpc.noaa.gov/products/planetary-k-index

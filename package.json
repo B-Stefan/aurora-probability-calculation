@@ -1,8 +1,8 @@
 {
   "name": "aurora-probability-calculation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library to predict the probability of an aurora boreales event for the future",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dist": "./node_modules/.bin/babel src --out-dir dist",
     "prepublish": "npm run dist",
