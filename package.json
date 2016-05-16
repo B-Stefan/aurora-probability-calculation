@@ -1,10 +1,10 @@
 {
   "name": "aurora-probability-calculation",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A library to predict the probability of an aurora boreales event for the future",
   "main": "dist/index.js",
   "scripts": {
-    "dist": "./node_modules/.bin/babel src --out-dir dist",
+    "dist": "./node_modules/.bin/babel src --out-dir dist --copy-files",
     "prepublish": "npm run dist",
     "test": "mocha --require babel-core/register",
     "example": "./node_modules/.bin/babel-node example.js "

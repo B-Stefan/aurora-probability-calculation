@@ -1,0 +1,213 @@
+[
+  {
+      "geoMagLat": 49.11,
+      "label": "Bremen, Germany",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0
+        },
+        {
+          "kp": 3,
+          "probability": 0
+        },
+        {
+          "kp": 4,
+          "probability": 0.2
+        },
+        {
+          "kp": 5,
+          "probability": 0.4
+        },
+        {
+          "kp": 6,
+          "probability": 0.6
+        },
+        {
+          "kp": 7,
+          "probability": 0.8
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  },
+  {
+      "geoMagLat": 55.60,
+      "label": "Malmö, Schweden",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0
+        },
+        {
+          "kp": 3,
+          "probability": 0.1
+        },
+        {
+          "kp": 4,
+          "probability": 0.3
+        },
+        {
+          "kp": 5,
+          "probability": 0.7
+        },
+        {
+          "kp": 6,
+          "probability": 0.8
+        },
+        {
+          "kp": 7,
+          "probability": 1
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  },
+  {
+    "geoMagLat": 59.33 ,
+    "label": "Stockholm, Finland",
+    "values": [
+      {
+        "kp": 1,
+        "probability": 0
+      },
+      {
+        "kp": 2,
+        "probability": 0
+      },
+      {
+        "kp": 3,
+        "probability": 0.04
+      },
+      {
+        "kp": 4,
+        "probability": 0.09
+      },
+      {
+        "kp": 5,
+        "probability": 0.59
+      },
+      {
+        "kp": 6,
+        "probability": 0.9
+      },
+      {
+        "kp": 7,
+        "probability": 1
+      },
+      {
+        "kp": 8,
+        "probability": 1
+      },
+      {
+        "kp": 9,
+        "probability": 1
+      }
+    ]
+  },
+  {
+      "geoMagLat": 58.97,
+      "label": "Jyväskylä, Finland",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0.1
+        },
+        {
+          "kp": 3,
+          "probability": 0.2
+        },
+        {
+          "kp": 4,
+          "probability": 0.6
+        },
+        {
+          "kp": 5,
+          "probability": 0.9
+        },
+        {
+          "kp": 6,
+          "probability": 1
+        },
+        {
+          "kp": 7,
+          "probability": 1
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  },
+  {
+      "geoMagLat": 65.31,
+      "label": "Saariselkä, Finland",
+      "values": [
+        {
+          "kp": 1,
+          "probability": 0
+        },
+        {
+          "kp": 2,
+          "probability": 0.5
+        },
+        {
+          "kp": 3,
+          "probability": 0.9
+        },
+        {
+          "kp": 4,
+          "probability": 1
+        },
+        {
+          "kp": 5,
+          "probability": 1
+        },
+        {
+          "kp": 6,
+          "probability": 1
+        },
+        {
+          "kp": 7,
+          "probability": 1
+        },
+        {
+          "kp": 8,
+          "probability": 1
+        },
+        {
+          "kp": 9,
+          "probability": 1
+        }
+      ]
+  }
+
+]
