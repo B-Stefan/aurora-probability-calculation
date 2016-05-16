@@ -1,10 +1,13 @@
 {
   "name": "aurora-probability-calculation",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "A library to predict the probability of an aurora boreales event for the future",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --require ./bootstrap"
+    "dist": "./node_modules/.bin/babel src --out-dir dist",
+    "prepublish": "npm run dist",
+    "test": "mocha --require babel-core/register",
+    "example": "./node_modules/.bin/babel-node example.js "
   },
   "repository": {
     "type": "git",
@@ -30,7 +33,7 @@
     "stringify-object": "^2.3.1"
   },
   "dependencies": {
-    "geomagnatic-to-kp-index-converter": "^1.0.0",
+    "geomagnatic-to-kp-index-converter": "^1.1.0",
     "node-svm": "^2.1.7"
   }
 }

@@ -1,13 +1,3 @@
-# aurora-probability-calculation
-A library to predict the probability of an aurora boreales event in the future.
-
-
-#Example
-
-
-```javascript
-
-
 import {predict} from "./src/index"
 
 const gLat = 55.60; // Geomagnatic latitude Malmö, Schweden , see https://en.wikipedia.org/wiki/Geomagnetic_lat
@@ -18,12 +8,3 @@ predict(gLat,kpIndex).then((result)=>{
 }).catch((e)=>{
   console.error(e)
 });
-
-//Output: Probability for the gLat 55.6 and kpIndex of: 6 is ===>  0.8988385082835078
-
-
-```
-
-#Licence
-
-* MIT
