@@ -1,6 +1,10 @@
 # aurora-probability-calculation
-A library to predict the probability of an aurora boreales event in the future.
+A library to get the probability of an northern light event for a specific location and a given [kpIndex]( http://www.swpc.noaa.gov/products/planetary-k-index) 
+#Installation 
 
+```
+  npm install aurora-probability-calculation
+```
 
 #Example
 
@@ -23,6 +27,17 @@ predict(gLat,kpIndex).then((result)=>{
 
 
 ```
+
+
+#Prediction method
+I tried several solutions all based on some kind of learning algorithm for example you find in this repository implementations of the following libaries: 
+
+* Brain-js - A very simple neuronal network  [Branch:feature-brain-js](https://github.com/B-Stefan/aurora-probability-calculation/tree/feature-brain-js)
+* convnetjs - More complex neuronal network libary  [Branch:feature-convnetjs](https://github.com/B-Stefan/aurora-probability-calculation/tree/feature-convnetjs)
+* smr - multiple regression lib   [Branch:feature-smr](https://github.com/B-Stefan/aurora-probability-calculation/tree/feature-smr)
+* synaptic - good neuronal network lib  [Branch:feature-synaptic](https://github.com/B-Stefan/aurora-probability-calculation/tree/feature-synaptic)
+
+
 
 #Licence
 
