@@ -60,6 +60,13 @@ export default class KpPredictionClass {
   */
   predict(gLat, kpIndex){
 
-    return this.svm.predictSync([gLat,kpIndex]);
+    let result =  this.svm.predictSync([gLat,kpIndex])
+    if(result>1){
+      return 1;
+    }else if(result < 0){
+      return 0;
+    }else {
+      return result;
+    }
   }
 }
